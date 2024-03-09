@@ -32,6 +32,36 @@
                 }
             }
 
+            // Calcular el promedio de las comisiones por venta
+            double promedioComisiones = comisionTotal / ventas.Length;
+
+            // Verificar si el vendedor superó el objetivo del mes
+            double totalVentas = 0;
+            foreach (double venta in ventas)
+            {
+                totalVentas += venta;
+            }
+            bool superaObjetivo = totalVentas >= 1000000;
+
+            // Si supera el objetivo del mes, sumar el beneficio extra
+            if (superaObjetivo)
+            {
+                totalMes += 100000;
+                Console.WriteLine("¡Felicidades! Has superado el objetivo del mes y ganaste un beneficio extra de $100.000");
+            }
+            else
+            {
+                Console.WriteLine("No has superado el objetivo del mes.");
+            }
+
+                Console.WriteLine($"Comisiones por las tres ventas: ${comisionTotal}");
+                Console.WriteLine($"Total recibido en el mes: ${totalMes}");
+                Console.WriteLine($"Venta que generó la mayor comisión: ${mayorComision}");
+                Console.WriteLine($"Promedio de las comisiones por venta: ${promedioComisiones}");
+
+                Console.ReadLine();
+    }
+}
 
         }
     }
