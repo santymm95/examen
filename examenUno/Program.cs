@@ -59,7 +59,7 @@
                 Console.WriteLine($"Venta que generó la mayor comisión: ${mayorComision}");
                 Console.WriteLine($"Promedio de las comisiones por venta: ${promedioComisiones}");
 
-                Console.ReadLine();
+                
     }
 }
 
