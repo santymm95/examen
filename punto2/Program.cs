@@ -14,6 +14,7 @@
             // Tiempo que le toma al segundo tren alcanzar la distancia recorrida por el primer tren
             double tiempo = distanciaRecorrida / velocidadTren2; // horas
 
+            TimeSpan horaEncuentro = TimeSpan.FromHours(11) + TimeSpan.FromHours(tiempo);
 
         }
     }
