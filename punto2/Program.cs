@@ -16,6 +16,11 @@
 
             TimeSpan horaEncuentro = TimeSpan.FromHours(11) + TimeSpan.FromHours(tiempo);
 
+            // Mostrar la hora de encuentro del segundo tren
+            Console.WriteLine($"El segundo tren alcanzará al primer tren a las {horaEncuentro.ToString(@"hh\:mm")}.");
+
+            Console.ReadLine();
+
         }
     }
 }
