@@ -17,6 +17,22 @@
             {
                 comisionTotal += venta * comisionPorVenta;
             }
+
+            // Calcular el total recibido en el mes (sueldo base + comisiones)
+            double totalMes = sueldoBase + comisionTotal;
+
+            // Encontrar la venta que generó la mayor comisión
+            double mayorComision = 0;
+            foreach (double venta in ventas)
+            {
+                double comisionVenta = venta * comisionPorVenta;
+                if (comisionVenta > mayorComision)
+                {
+                    mayorComision = comisionVenta;
+                }
+            }
+
+
         }
     }
 }
