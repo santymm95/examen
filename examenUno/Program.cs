@@ -1,25 +1,67 @@
-﻿using System;
-
-class Program
+﻿namespace examenUno
 {
-    static void Main(string[] args)
+    internal class Program
     {
-        // Velocidades de los trenes
-        double velocidadTren1 = 80; // km/h
-        double velocidadTren2 = 100; // km/h
+        static void Main(string[] args)
+        {
+            // Definir el sueldo base y la comisión por venta
+            double sueldoBase = 1200000;
+            double comisionPorVenta = 0.10;
 
-        // Distancia recorrida por el primer tren cuando el segundo tren comienza su viaje
-        double distanciaRecorrida = velocidadTren1; // km
+            // Definir las ventas del vendedor
+            double[] ventas = new double[] { 500000, 400000, 300000 }; // Ejemplo donde las ventas suman más de 1.000.000
 
-        // Tiempo que le toma al segundo tren alcanzar la distancia recorrida por el primer tren
-        double tiempo = distanciaRecorrida / velocidadTren2; // horas
+            // Calcular la comisión por las tres ventas
+            double comisionTotal = 0;
+            foreach (double venta in ventas)
+            {
+                comisionTotal += venta * comisionPorVenta;
+            }
 
-        // Calcular la hora de encuentro del segundo tren
-        TimeSpan horaEncuentro = TimeSpan.FromHours(11) + TimeSpan.FromHours(tiempo);
+            // Calcular el total recibido en el mes (sueldo base + comisiones)
+            double totalMes = sueldoBase + comisionTotal;
 
-        // Mostrar la hora de encuentro del segundo tren
-        Console.WriteLine($"El segundo tren alcanzará al primer tren a las {horaEncuentro.ToString(@"hh\:mm")}.");
+            // Encontrar la venta que generó la mayor comisión
+            double mayorComision = 0;
+            foreach (double venta in ventas)
+            {
+                double comisionVenta = venta * comisionPorVenta;
+                if (comisionVenta > mayorComision)
+                {
+                    mayorComision = comisionVenta;
+                }
+            }
 
-        Console.ReadLine();
+            // Calcular el promedio de las comisiones por venta
+            double promedioComisiones = comisionTotal / ventas.Length;
+
+            // Verificar si el vendedor superó el objetivo del mes
+            double totalVentas = 0;
+            foreach (double venta in ventas)
+            {
+                totalVentas += venta;
+            }
+            bool superaObjetivo = totalVentas >= 1000000;
+
+            // Si supera el objetivo del mes, sumar el beneficio extra
+            if (superaObjetivo)
+            {
+                totalMes += 100000;
+                Console.WriteLine("¡Felicidades! Has superado el objetivo del mes y ganaste un beneficio extra de $100.000");
+            }
+            else
+            {
+                Console.WriteLine("No has superado el objetivo del mes.");
+            }
+
+                Console.WriteLine($"Comisiones por las tres ventas: ${comisionTotal}");
+                Console.WriteLine($"Total recibido en el mes: ${totalMes}");
+                Console.WriteLine($"Venta que generó la mayor comisión: ${mayorComision}");
+                Console.WriteLine($"Promedio de las comisiones por venta: ${promedioComisiones}");
+
+                
     }
 }
+
+        }
+    
